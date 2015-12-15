@@ -1,0 +1,64 @@
+var fs = require('fs');
+module.exports = function(grunt){
+	grunt.initConfig({
+		copy:{
+			main:{
+				files:[
+					{
+						expand:true,
+						flatten:true,
+						ext:'.js',
+						src:['node_modules/requirejs/require.js'],
+						dest:'src/script/'
+					},
+					{
+						expand:true,
+						flatten:true,
+						cwd:'node_modules/',
+						src:[
+							'angular/angular.min.js',
+							'bootstrap/dist/js/bootstrap.min.js',
+						],  
+						dest:'src/script/lib/'
+					},
+					{
+						expand:true,
+						flatten:true,
+						src:[
+							'node_modules/bootstrap/fonts/*',
+						],
+						dest:'src/fonts/'
+					},{
+						expand:true,
+						flatten:true,
+						src:[
+							'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+						],
+						dest:'src/css/lib'
+					}
+				]
+			}
+		},
+		uglify:{
+			main:{
+				options:{
+					nonull:true
+				},
+				files:[
+					{
+						expand:true,
+						cwd:'src/script/',
+						src:['**/*.js'],
+						dest:'build/script'
+					}			
+				]
+			}
+		}
+	});
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+
+	grunt.registerTask('preload','import files needed',['copy']);
+	grunt.registerTask('minify',['uglify']);
+};

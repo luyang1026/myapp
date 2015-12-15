@@ -1,0 +1,33 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "myapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luyang1026/myapp.git"
+  },
+  "keywords": [
+    "myapp"
+  ],
+  "author": "luyang1026",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luyang1026/myapp/issues"
+  },
+  "homepage": "https://github.com/luyang1026/myapp#readme",
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "bootstrap": "^3.3.6",
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "less": "^2.5.3",
+    "requirejs": "^2.1.22",
+    "zepto": "0.0.4"
+  }
+}
